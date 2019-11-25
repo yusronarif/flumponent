@@ -2,6 +2,7 @@ library arkid;
 
 export 'package:flumponent/dialogs.dart';
 export 'package:flumponent/navigation.dart';
+export 'package:flumponent/widget/skeleton.dart';
 
 /// A Calculator.
 class Calculator {
