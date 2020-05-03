@@ -5,17 +5,18 @@ class Nav {
       {bool permanentlyMoved: false}) async {
     if (permanentlyMoved) {
       if (action is Widget) {
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => action));
+        // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => action));
+        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => action), (Route<dynamic> route) => false);
       }
       else {
-        Navigator.pushReplacementNamed(context, "/$action");
+        // Navigator.pushReplacementNamed(context, "/$action");
+        Navigator.pushNamedAndRemoveUntil(context, "/$action", (Route<dynamic> route) => false);
       }
+      // Navigator.pop(context);
     }
     else {
       if (action is Widget) {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => action));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => action));
       }
       else {
         Navigator.pushNamed(context, "/$action");
@@ -23,7 +24,7 @@ class Nav {
     }
   }
 
-  Future<void> back(BuildContext context, {returnValue: null}) async {
+  Future<void> back(BuildContext context, {String returnValue: ''}) async {
     Navigator.pop(context, returnValue);
   }
 }

@@ -1,23 +1,21 @@
 import 'package:flutter/material.dart';
 
-class Dialog {
-  Future<void> alert(BuildContext context, content,
-      {title: 'Informasi'}) async {
-    return showDialog<void>(
+class ShowMessage {
+  Future alert(BuildContext context, {@required Widget content,
+      title: 'Informasi'}) async {
+    return await showDialog(
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(title),
           content: SingleChildScrollView(
-            child: Text(content),
+            child: content,
           ),
           actions: <Widget>[
             FlatButton(
               child: Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
+              onPressed: () => Navigator.of(context).pop('ok'),
             ),
           ],
         );
@@ -25,29 +23,25 @@ class Dialog {
     );
   }
 
-  Future<void> confirm(BuildContext context, content,
-      {title: 'Konfirmasi'}) async {
-    return showDialog<void>(
+  Future confirm(BuildContext context, {@required Widget content,
+      title: 'Konfirmasi'}) async {
+    return await showDialog(
       context: context,
       barrierDismissible: false, // user must tap button!
       builder: (BuildContext context) {
         return AlertDialog(
           title: Text(title),
           content: SingleChildScrollView(
-            child: Text(content),
+            child: content,
           ),
           actions: <Widget>[
             FlatButton(
               child: Text('Tidak'),
-              onPressed: () {
-                Navigator.of(context).pop('no');
-              },
+              onPressed: () => Navigator.of(context).pop('no'),
             ),
             FlatButton(
               child: Text('Iya'),
-              onPressed: () {
-                Navigator.of(context).pop('yes');
-              },
+              onPressed: () => Navigator.of(context).pop('yes'),
             ),
           ],
         );

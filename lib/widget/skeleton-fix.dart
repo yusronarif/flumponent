@@ -50,7 +50,7 @@ class _FlumSkeletonState extends State<FlumSkeleton>
       setState(() {});
     });
 
-    _controller.repeat();//?.orCancel;
+    _controller.repeat()?.orCancel;
   }
 
   @override
