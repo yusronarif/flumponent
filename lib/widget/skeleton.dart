@@ -8,12 +8,16 @@ class FlumSkeleton extends StatefulWidget {
   final BorderRadius borderRadius;
   final double width;
   final double height;
+  final EdgeInsetsGeometry margin;
+  final EdgeInsetsGeometry padding;
 
   FlumSkeleton({
     Key key,
     this.child,
     this.width,
     this.height = 10.0,
+    this.margin,
+    this.padding,
     this.shimmerColor = Colors.black26,
     this.gradientColor = Colors.black12,
     this.border,
@@ -42,15 +46,12 @@ class _FlumSkeletonState extends State<FlumSkeleton>
       begin: -3,
       end: 10,
     ).animate(
-      CurvedAnimation(
-        parent: _controller,
-        curve: Curves.linear
-      ),
+      CurvedAnimation(parent: _controller, curve: Curves.linear),
     )..addListener(() {
-      setState(() {});
-    });
+        setState(() {});
+      });
 
-    _controller.repeat();//?.orCancel;
+    _controller.repeat(); //?.orCancel;
   }
 
   @override
@@ -62,18 +63,23 @@ class _FlumSkeletonState extends State<FlumSkeleton>
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: widget.child!=null ? null : widget.width,
-      height: widget.child!=null ? null : widget.height,
+      width: widget.child != null ? null : widget.width,
+      height: widget.child != null ? null : widget.height,
+      padding: widget.padding ?? null,
+      margin: widget.margin ?? null,
       child: widget.child,
       decoration: BoxDecoration(
-        border: widget.border,
-        borderRadius: widget.borderRadius,
-        gradient: LinearGradient(
-          begin: Alignment(_gradientPosition.value, 0),
-          end: Alignment(-1, 0),
-          colors: [widget.gradientColor, widget.shimmerColor, widget.gradientColor],
-        )
-      ),
+          border: widget.border,
+          borderRadius: widget.borderRadius,
+          gradient: LinearGradient(
+            begin: Alignment(_gradientPosition.value, 0),
+            end: Alignment(-1, 0),
+            colors: [
+              widget.gradientColor,
+              widget.shimmerColor,
+              widget.gradientColor
+            ],
+          )),
     );
   }
 }

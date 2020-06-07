@@ -6,19 +6,21 @@ class Nav {
     if (permanentlyMoved) {
       if (action is Widget) {
         // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => action));
-        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => action), (Route<dynamic> route) => false);
-      }
-      else {
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => action),
+            (Route<dynamic> route) => false);
+      } else {
         // Navigator.pushReplacementNamed(context, "/$action");
-        Navigator.pushNamedAndRemoveUntil(context, "/$action", (Route<dynamic> route) => false);
+        Navigator.pushNamedAndRemoveUntil(
+            context, "/$action", (Route<dynamic> route) => false);
       }
       // Navigator.pop(context);
-    }
-    else {
+    } else {
       if (action is Widget) {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => action));
-      }
-      else {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => action));
+      } else {
         Navigator.pushNamed(context, "/$action");
       }
     }

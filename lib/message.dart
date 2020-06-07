@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class ShowMessage {
-  Future alert(BuildContext context, {@required Widget content,
-      title: 'Informasi'}) async {
+  Future alert(BuildContext context,
+      {@required Widget content, title: 'Informasi'}) async {
     return await showDialog(
       context: context,
       barrierDismissible: false, // user must tap button!
@@ -23,8 +23,8 @@ class ShowMessage {
     );
   }
 
-  Future confirm(BuildContext context, {@required Widget content,
-      title: 'Konfirmasi'}) async {
+  Future confirm(BuildContext context,
+      {@required Widget content, title: 'Konfirmasi'}) async {
     return await showDialog(
       context: context,
       barrierDismissible: false, // user must tap button!

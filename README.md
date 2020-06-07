@@ -1,4 +1,6 @@
-# arkid
+# Flumponent
+
+[![Pub Package](https://img.shields.io/pub/v/flumponent.svg)](https://pub.dartlang.org/packages/flumponent)
 
 ArKID Components
 
